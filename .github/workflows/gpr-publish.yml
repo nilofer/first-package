@@ -3,9 +3,7 @@
 
 name: GPR Publish
 
-on:
-  release:
-    types: [created]
+on: [push]
 
 jobs:
   build:
