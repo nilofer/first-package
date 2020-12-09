@@ -42,7 +42,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@nilofer'
       - run: npm ci
-      - run: echo registry=https://npm.pkg.github.com/nilofer >> .npmrc
+      - run: echo @nilofer:registry=https://npm.pkg.github.com >> .npmrc
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GPR_GITHUB_TOKEN}}
