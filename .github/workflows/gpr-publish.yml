@@ -3,9 +3,7 @@
 
 name: GPR Publish
 
-on:
-  release:
-    types: [created]
+on: [push]
 
 jobs:
   build:
@@ -27,7 +25,9 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
+          scope: '@nilofer'
       - run: npm ci
+      - run: echo registry=https://npm.pkg.github.com/nilofer >> .npmrc
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.GPR_GITHUB_TOKEN}}

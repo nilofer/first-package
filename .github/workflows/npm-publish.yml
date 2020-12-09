@@ -3,7 +3,9 @@
 
 name: Node.js Package
 
-on: [push]
+on: 
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -41,8 +43,9 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: '@nilofer'
+      - run: sed -i '2s/.*/replacement-line/' file.txt
       - run: npm ci
-      - run: echo @nilofer:registry=https://npm.pkg.github.com >> .npmrc
+      - run: echo registry=https://npm.pkg.github.com/nilofer >> .npmrc
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GPR_GITHUB_TOKEN}}
