@@ -1,6 +1,6 @@
 {
-    "name": "@nilofer/first-package",
-    "version": "1.0.11",
+    "name": "@niloferr/first-package",
+    "version": "1.0.12",
     "description": "Removes all spaces from a string",
     "license": "MIT",
     "repository": "nilofer/first-package",
