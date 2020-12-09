@@ -41,8 +41,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: '@nilofer'
-        - name: Authenticate with the GitHub Package Registry
-        run:
+      - run:
         echo "//npm.pkg.github.com:_authToken=${{ secrets.GITHUB_TOKEN }}" >
         ~/.npmrc
       - run: npm ci
