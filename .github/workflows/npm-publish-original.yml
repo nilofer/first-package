@@ -39,6 +39,8 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
+      - run: (jq '.name = "@nilofer/first-package"' package.json) > INPUT.tmp && mv INPUT.tmp package.json
+      - run: (jq '.name = "@nilofer/first-package"' package-lock.json) > INPUT.tmp && mv INPUT.tmp package-lock.json
       - run: npm ci
       - run: echo registry=https://npm.pkg.github.com/nilofer >> .npmrc
       - run: npm publish
